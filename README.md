@@ -1,40 +1,49 @@
 # Side Notes
 
-Prywatne notatki obok edytora. Panel siedzi na activity barze i da się go przeciągnąć na drugi sidebar albo na dół, tak jak inne widoki.
+Private notes beside the editor, for Cursor and VS Code 1.85 or newer.
 
-Notatki nie wchodzą do repozytorium. Zostają w prywatnym storage rozszerzenia.
+The panel opens from the activity bar and can be dragged to the secondary sidebar or the bottom panel, like any other view. Notes stay in the extension's private storage. Nothing is written into the folder you have open.
 
-Działa w Cursorze i w VS Code od wersji 1.85.
+## Features
 
-Kod: https://github.com/michalsmolarek/side-notes
+- **Global** notes are shared across windows. **Workspace** notes belong to the folder that is open. With no folder open, Workspace explains that, and Global still works.
+- One note is a single editor with an add button. Two or more notes get a tab strip for switching.
+- Create, rename, and delete notes. The first note is titled Note. Further notes are Note 2, Note 3, and so on.
+- **Edit** is a plain text area. **Preview** renders GitHub Flavored Markdown: headings, lists, task lists, tables, quotes, horizontal rules, links, `https` images, inline code, fenced code with syntax highlighting, strikethrough, and autolinks.
+- Raw HTML in the note is not rendered. Links open outside the panel.
+- Font size controls: **A−**, **Reset**, and **A+**. The step is 1 px, from 10 to 24. Reset returns to the editor font size from the current theme. The chosen size is kept after a restart.
+- Changes save automatically. There is no Save button.
+- Colors and type follow the active theme.
+- Command Palette: **Side Notes: New note** and **Side Notes: Focus Side Notes**.
 
-## Funkcje
+## Install
 
-- Dwa zakresy: **Global** (wspólne dla okien) i **Workspace** (dla otwartego folderu). Bez otwartego folderu Workspace pokazuje krótki komunikat, Global działa dalej.
-- Jedna notatka to sam edytor i przycisk **+**. Od dwóch notatek dochodzą karty do przełączania.
-- Nowa notatka, zmiana nazwy i usuwanie. Pierwsza nazywa się Note, kolejne Note 2, Note 3 i tak dalej.
-- Tryb **Edit** to zwykłe pole tekstu. **Preview** renderuje GitHub Flavored Markdown: nagłówki, listy, listy zadań, tabele, cytaty, linie, linki, obrazki https, kod w linii, bloki kodu z kolorowaniem, przekreślenie i autolinki.
-- Surowy HTML w treści nie jest renderowany. Link otwiera się poza panelem.
-- Rozmiar czcionki: **A−**, **Reset**, **A+**. Krok 1 px, zakres 10–24. Reset wraca do czcionki motywu. Wybrany rozmiar zostaje po restarcie.
-- Zapis jest automatyczny. Nie ma przycisku Save.
-- Kolory i font biorą się z motywu edytora.
-- Polecenia w Command Palette: **Side Notes: New note** i **Side Notes: Focus Side Notes**.
+Cursor and VS Code use the same steps.
 
-## Instalacja
+1. Get `side-notes-0.1.0.vsix`.
+2. Open the Command Palette: `Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Windows and Linux.
+3. Run **Extensions: Install from VSIX…**.
+4. Choose the file.
+5. If the Side Notes icon is not on the activity bar, run **Developer: Reload Window**.
+6. Click the Side Notes icon.
 
-Ta sama ścieżka w Cursorze i w VS Code.
+## Where notes are stored
 
-1. Weź plik `side-notes-0.1.0.vsix`.
-2. Otwórz Command Palette: `Cmd+Shift+P` na macOS, `Ctrl+Shift+P` na Windows i Linux.
-3. Uruchom **Extensions: Install from VSIX…**.
-4. Wskaż plik.
-5. Jeśli ikony nie ma na activity barze, uruchom **Developer: Reload Window**.
-6. Kliknij ikonę Side Notes.
+- Global notes: the extension's global storage directory, as `notes/index.json` plus one `notes/{id}.md` file per note.
+- Workspace notes: the extension's workspace storage directory, same layout.
+- Font size: `preferences.json` in global storage.
 
-## Gdzie leżą notatki
+The title lives in the index. The body lives in its own file. Only the open note is loaded into the editor.
 
-Nic nie jest zapisywane w otwartym projekcie.
+## Develop
 
-- Global: katalog global storage rozszerzenia, `notes/index.json` oraz `notes/{id}.md`
-- Workspace: katalog workspace storage rozszerzenia, ten sam układ
-- Rozmiar czcionki: `preferences.json` w global storage
+```bash
+npm install
+npm test
+```
+
+Open this folder in Cursor or VS Code and press F5. The **Run Side Notes** launch config compiles the extension and opens an Extension Development Host. `npm run package` builds a VSIX.
+
+## License
+
+MIT

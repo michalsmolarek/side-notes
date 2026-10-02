@@ -2,6 +2,8 @@
 
 Private notes beside the editor, for Cursor and VS Code 1.85 or newer.
 
+**[Download side-notes-0.1.0.vsix](https://github.com/michalsmolarek/side-notes/releases/download/v0.1.0/side-notes-0.1.0.vsix)** · [v0.1.0 release](https://github.com/michalsmolarek/side-notes/releases/tag/v0.1.0)
+
 The panel opens from the activity bar and can be dragged to the secondary sidebar or the bottom panel, like any other view. Notes stay in the extension's private storage. Nothing is written into the folder you have open.
 
 ## Features
@@ -20,7 +22,7 @@ The panel opens from the activity bar and can be dragged to the secondary sideba
 
 Cursor and VS Code use the same steps.
 
-1. Download [side-notes-0.1.0.vsix](https://github.com/michalsmolarek/side-notes/releases/download/v0.1.0/side-notes-0.1.0.vsix) from the [v0.1.0 release](https://github.com/michalsmolarek/side-notes/releases/tag/v0.1.0).
+1. Download [side-notes-0.1.0.vsix](https://github.com/michalsmolarek/side-notes/releases/download/v0.1.0/side-notes-0.1.0.vsix).
 2. Open the Command Palette: `Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Windows and Linux.
 3. Run **Extensions: Install from VSIX…**.
 4. Choose the downloaded file.

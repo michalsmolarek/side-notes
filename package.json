@@ -1,0 +1,73 @@
+{
+  "name": "side-notes",
+  "displayName": "Side Notes",
+  "description": "Private notes beside the editor, with a Markdown preview.",
+  "version": "0.1.0",
+  "private": true,
+  "publisher": "side-notes",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onView:sideNotes.view",
+    "onCommand:sideNotes.newNote",
+    "onCommand:sideNotes.focus"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sideNotes",
+          "title": "Side Notes",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "sideNotes": [
+        {
+          "type": "webview",
+          "id": "sideNotes.view",
+          "name": "Side Notes",
+          "contextualTitle": "Side Notes",
+          "retainContextWhenHidden": true
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "sideNotes.newNote",
+        "title": "New note",
+        "category": "Side Notes"
+      },
+      {
+        "command": "sideNotes.focus",
+        "title": "Focus Side Notes",
+        "category": "Side Notes"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "node esbuild.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run compile && node --test dist/storage.test.js",
+    "package": "npm run compile && npx @vscode/vsce package --no-dependencies --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "^22.15.3",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.25.5",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1",
+    "markdown-it": "^14.1.0",
+    "markdown-it-task-lists": "^2.1.1"
+  }
+}

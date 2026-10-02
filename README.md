@@ -20,12 +20,21 @@ The panel opens from the activity bar and can be dragged to the secondary sideba
 
 Cursor and VS Code use the same steps.
 
-1. Get `side-notes-0.1.0.vsix`.
+1. Download [side-notes-0.1.0.vsix](https://github.com/michalsmolarek/side-notes/releases/download/v0.1.0/side-notes-0.1.0.vsix) from the [v0.1.0 release](https://github.com/michalsmolarek/side-notes/releases/tag/v0.1.0).
 2. Open the Command Palette: `Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Windows and Linux.
 3. Run **Extensions: Install from VSIX…**.
-4. Choose the file.
+4. Choose the downloaded file.
 5. If the Side Notes icon is not on the activity bar, run **Developer: Reload Window**.
 6. Click the Side Notes icon.
+
+To build the package yourself, clone this repository and run:
+
+```bash
+npm install
+npm run package
+```
+
+That writes `side-notes-0.1.0.vsix` in the project root. Install it with the same command.
 
 ## Where notes are stored
 

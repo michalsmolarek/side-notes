@@ -6,6 +6,14 @@ Private notes beside the editor, for Cursor and VS Code 1.85 or newer.
 
 The panel opens from the activity bar and can be dragged to the secondary sidebar or the bottom panel, like any other view. Notes stay in the extension's private storage. Nothing is written into the folder you have open.
 
+## Preview
+
+The same note, on the Release tab. Edit shows the markdown. Preview renders it.
+
+![Raw markdown in Edit](docs/side-notes-raw.png)
+
+![The same note in Preview](docs/side-notes-preview.png)
+
 ## Features
 
 - **Global** notes are shared across windows. **Workspace** notes belong to the folder that is open. With no folder open, Workspace explains that, and Global still works.
